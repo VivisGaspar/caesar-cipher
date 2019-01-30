@@ -11,7 +11,7 @@ html,body {
     height: 100%;
 }
 
-.botao-padrao {
+.button {
     padding: 10px;
     color:white;
     background: gray;

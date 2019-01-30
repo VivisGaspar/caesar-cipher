@@ -1,30 +1,58 @@
-window.cipher = {
-  encode: function (offset, string) {
-    const ALPHABETIC = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    const OFFSET_NUMBER = parseInt(offset);
-    let word = '';
+  let cipher = {};
+
+  cipher.encode = (offset, string) => {
+    let desloc = "";
+    let resultLetterOffset = "";
+    let finalletter = "";
 
     for (let i = 0; i < string.length; i++) {
-      let position = (string.charCodeAt(i) - 65 + OFFSET_NUMBER) % 26;
-      word += ALPHABETIC[position];
-      console.log(position)
-    }
-    
-    document.getElementById('digite-texto').value = word;
-  },
+      let letter = parseInt(string.charCodeAt(i));
+      offset = parseInt(offset);
 
-  decode: function (offset, string) {
-    const ALPHABETIC = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    const OFFSET_NUMBER = parseInt(offset);
-    let word = '';
+      if ( letter > 64 && letter < 91) {
+        desloc = (((letter - 65) + offset ) % 26) + 65; 
+        resultLetterOffset = String.fromCharCode(desloc);
+        finalletter = finalletter + resultLetterOffset;
+      }
+      
+      if ( letter > 96 && letter < 123) {
+        desloc = (((letter - 96) + offset ) % 26) + 96; 
+        resultLetterOffset = String.fromCharCode(desloc);
+        finalletter = finalletter + resultLetterOffset;
+      } else {
+        resultLetterOffset = String.fromCharCode(letter);
+        finalletter = finalletter + resultLetterOffset;  
+      }
+    }
+
+    return finalletter; 
+  }
+
+  cipher.decode = (offset, string) => {
+    let desloc = "";
+    let resultLetterOffset = "";
+    let finalletter = "";
 
     for (let i = 0; i < string.length; i++) {
-      let position = (string.charCodeAt(i) + 65 - OFFSET_NUMBER) % 26;
-      word += ALPHABETIC[position]
-    }
-    
-    document.getElementById('digite-texto').value = word;
-  },
-};
+      let letter = string.charCodeAt(i);
+      letter = parseInt(letter);
+      offset = parseInt(offset);
 
+      if ( letter > 64 && letter < 91) {
+        desloc = (((letter - 65) - offset ) % 26) + 65; 
+        resultLetterOffset = String.fromCharCode(desloc);
+        finalletter = finalletter + resultLetterOffset;
+      }
 
+      if ( letter > 96 && letter < 123) {
+        desloc = (((letter - 96) - offset ) % 26) + 96; 
+        resultLetterOffset = String.fromCharCode(desloc);
+        finalletter = finalletter + resultLetterOffset;
+      } else {
+        resultLetterOffset = String.fromCharCode(letter);
+        finalletter = finalletter + resultLetterOffset;  
+      }
+                
+  }
+  return finalletter; 
+}

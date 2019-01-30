@@ -15,13 +15,15 @@
         Digite o deslocamento:<br>
         <input type="number" id="digite-deslocamento"><br><br>
         
-        <button class="botao-padrao" onclick="window.cipher.encode(document.getElementById('digite-deslocamento').value, document.getElementById('digite-texto').value); return false">Codificar</button>
-       
-        <button class="botao-padrao" onclick="window.cipher.decode(document.getElementById('digite-deslocamento').value, document.getElementById('digite-texto').value); return false">Decodificar</button>
-        <button type="reset" class="botao-padrao">Recomeçar</button>
+        <input onclick="cipher.encode(document.getElementById('digite-deslocamento').value, document.getElementById('digite-texto').value);return false" type="button" value="Codificar"
+        class="button"><br>
+        <textarea id="fraseFinal" ></textarea>
+        
+
       </form>
       
     </div>
     <script src="cipher.js"></script>
+    <script src="tests.js"></script>
     </body>
 </html>
