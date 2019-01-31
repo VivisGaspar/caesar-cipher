@@ -15,7 +15,7 @@
           finalletter = finalletter + resultLetterOffset;
         }
         
-        if ( letter > 96 && letter < 123) {
+         else if ( letter > 96 && letter < 123) {
           desloc = (((letter - 96) + offset ) % 26) + 96; 
           resultLetterOffset = String.fromCharCode(desloc);
           finalletter = finalletter + resultLetterOffset;
@@ -39,13 +39,13 @@
       offset = parseInt(offset);
 
       if ( letter > 64 && letter < 91) {
-        desloc = (((letter - 65) - offset ) % 26) + 65; 
+        desloc = (((letter - 90) - offset ) % 26) + 90; 
         resultLetterOffset = String.fromCharCode(desloc);
         finalletter = finalletter + resultLetterOffset;
       }
 
-      if ( letter > 96 && letter < 123) {
-        desloc = (((letter - 96) - offset ) % 26) + 96; 
+      else if ( letter > 96 && letter < 123) {
+        desloc = (((letter - 122) - offset ) % 26) + 122; 
         resultLetterOffset = String.fromCharCode(desloc);
         finalletter = finalletter + resultLetterOffset;
       } else {
