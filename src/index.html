@@ -5,25 +5,30 @@
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body onload="cipher.load()">
+    
     <div id="root">
-      
-      <form action="" method="post">
-        Digite o texto:<br>
-        <input type="text" id="digite-texto"><br>
-        
-        Digite o deslocamento:<br>
-        <input type="number" id="digite-deslocamento"><br><br>
-        
-        <input onclick="cipher.encode(document.getElementById('digite-deslocamento').value, document.getElementById('digite-texto').value);return false" type="button" value="Codificar"
-        class="button"><br>
-        <textarea id="fraseFinal" ></textarea>
-        
+      <h1 class="titulo-padrao">Cipher Caesar</h1> 
+      <p>Com o Cipher é possivel criptografar mensagens.<br>Comece digitando o texto que deseja criptografar e depois digite um número de sua preferência.
+          
+      <form>
+          Digite o texto:<br>
+          <input type="text" id="digite-texto"><br><br>
+          
+          Digite o deslocamento:<br>
+          <input type="number" id="digite-deslocamento"><br><br>
 
-      </form>
-      
+          Resultado:<br>
+          <textarea id="resultado"></textarea><br><br>
+          
+         <button id="btn-codificar" class="botao-padrao">Codificar</button>      
+         <button id="btn-decodificar" class="botao-padrao">Decodificar</button>      
+         <button type="reset" class="botao-padrao">Recomeçar</button>
+      </form>  
     </div>
+
     <script src="cipher.js"></script>
     <script src="tests.js"></script>
-    </body>
+
+  </body>
 </html>
