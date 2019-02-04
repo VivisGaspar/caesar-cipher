@@ -13,6 +13,14 @@ Fonte:[Wikipedia](https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar)
 
 Este projeto foi desenvolvido para o Bootcamp da Laboratoria com o objetivo de construir aplicação web usando conhecimento de **User Experience Design** , **JavaScript(ES6)** e **CSS**.
 
+Foram criadas três funções dentro do objeto **cipher** chamadas **encode**, **decode** e **load**, onde elas possuem a estrutura a seguir:
+
+```cipher.encode(offset, string)```: O parâmetro offset recebe o número de posições que usuário deseja deslocar para a **direita** e o parâmetro string recebe a palavra a ser criptografada. 
+
+```cipher.decode(offset, string)```: O parâmetro offset recebe o número de posições que usuário deseja deslocar para a **esquerda** e o parâmetro string recebe a palavra a ser descriptografada.
+
+```cipher.load()```: Ela é carregada no evento **onload** da página, onde são adicionados os eventos de **onclick**.
+
 Abaixo Diagrama de blocos como forma de representação gráfica do algoritmo para compreensão lógica utilizada.
 
 

@@ -13,9 +13,7 @@
           desloc = (((letter - 65) + offset ) % 26) + 65; 
           resultLetterOffset = String.fromCharCode(desloc);
           finalletter = finalletter + resultLetterOffset;
-        }
-        
-         else if ( letter > 96 && letter < 123) {
+        } else if ( letter > 96 && letter < 123) {
           desloc = (((letter - 96) + offset ) % 26) + 96; 
           resultLetterOffset = String.fromCharCode(desloc);
           finalletter = finalletter + resultLetterOffset;
@@ -42,9 +40,7 @@
         desloc = (((letter - 90) - offset ) % 26) + 90; 
         resultLetterOffset = String.fromCharCode(desloc);
         finalletter = finalletter + resultLetterOffset;
-      }
-
-      else if ( letter > 96 && letter < 123) {
+      } else if ( letter > 96 && letter < 123) {
         desloc = (((letter - 122) - offset ) % 26) + 122; 
         resultLetterOffset = String.fromCharCode(desloc);
         finalletter = finalletter + resultLetterOffset;
@@ -69,12 +65,12 @@ cipher.load = () => {
     const resultadoEncode = cipher.encode(digiteDeslocamento.value, digiteTexto.value);
     resultado.value = resultadoEncode;
     event.preventDefault();
-  })
+  });
 
-    btnDecodificar.addEventListener("click", function(event) {
-      const resultadoDecode = cipher.decode(digiteDeslocamento.value, digiteTexto.value);
-      resultado.value = resultadoDecode;
-  
+  btnDecodificar.addEventListener("click", function(event) {
+    const resultadoDecode = cipher.decode(digiteDeslocamento.value, digiteTexto.value);
+    resultado.value = resultadoDecode;
+
     event.preventDefault();
-  })
+  });
 }
