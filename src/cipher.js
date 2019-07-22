@@ -1,76 +1,75 @@
-  let cipher = {};
+let cipher = {};
 
-  cipher.encode = (offset, string) => {
-    let desloc = "";
-    let resultLetterOffset = "";
-    let finalletter = "";
+cipher.encode = (offset, string) => {
+  let desloc = "";
+  let resultLetterOffset = "";
+  let finalletter = "";
 
-    for (let i = 0; i < string.length; i++) {
-      let letter = parseInt(string.charCodeAt(i));
-      offset = parseInt(offset);
-      
-        if ( letter > 64 && letter < 91) {
-          desloc = (((letter - 65) + offset ) % 26) + 65; 
-          resultLetterOffset = String.fromCharCode(desloc);
-          finalletter = finalletter + resultLetterOffset;
-        } else if ( letter > 96 && letter < 123) {
-          desloc = (((letter - 96) + offset ) % 26) + 96; 
-          resultLetterOffset = String.fromCharCode(desloc);
-          finalletter = finalletter + resultLetterOffset;
-        } else {
-          resultLetterOffset = String.fromCharCode(letter);
-          finalletter = finalletter + resultLetterOffset;  
-        }
+  for (let i = 0; i < string.length; i++) {
+    let letter = parseInt(string.charCodeAt(i));
+    offset = parseInt(offset);
+
+    if (letter > 64 && letter < 91) {
+      desloc = ((letter - 65 + offset) % 26) + 65;
+      resultLetterOffset = String.fromCharCode(desloc);
+      finalletter = finalletter + resultLetterOffset;
+    } else if (letter > 96 && letter < 123) {
+      desloc = ((letter - 96 + offset) % 26) + 96;
+      resultLetterOffset = String.fromCharCode(desloc);
+      finalletter = finalletter + resultLetterOffset;
+    } else {
+      resultLetterOffset = String.fromCharCode(letter);
+      finalletter = finalletter + resultLetterOffset;
     }
-
-    return finalletter; 
   }
 
-  cipher.decode = (offset, string) => {
-    let desloc = "";
-    let resultLetterOffset = "";
-    let finalletter = "";
+  return finalletter;
+};
 
-    for (let i = 0; i < string.length; i++) {
-      let letter = string.charCodeAt(i);
-      letter = parseInt(letter);
-      offset = parseInt(offset);
+cipher.decode = (offset, string) => {
+  let desloc = "";
+  let resultLetterOffset = "";
+  let finalletter = "";
 
-      if ( letter > 64 && letter < 91) {
-        desloc = (((letter - 90) - offset ) % 26) + 90; 
-        resultLetterOffset = String.fromCharCode(desloc);
-        finalletter = finalletter + resultLetterOffset;
-      } else if ( letter > 96 && letter < 123) {
-        desloc = (((letter - 122) - offset ) % 26) + 122; 
-        resultLetterOffset = String.fromCharCode(desloc);
-        finalletter = finalletter + resultLetterOffset;
-      } else {
-        resultLetterOffset = String.fromCharCode(letter);
-        finalletter = finalletter + resultLetterOffset;  
-      }
-                
+  for (let i = 0; i < string.length; i++) {
+    let letter = string.charCodeAt(i);
+    letter = parseInt(letter);
+    offset = parseInt(offset);
+
+    if (letter > 64 && letter < 91) {
+      desloc = ((letter - 90 - offset) % 26) + 90;
+      resultLetterOffset = String.fromCharCode(desloc);
+      finalletter = finalletter + resultLetterOffset;
+    } else if (letter > 96 && letter < 123) {
+      desloc = ((letter - 122 - offset) % 26) + 122;
+      resultLetterOffset = String.fromCharCode(desloc);
+      finalletter = finalletter + resultLetterOffset;
+    } else {
+      resultLetterOffset = String.fromCharCode(letter);
+      finalletter = finalletter + resultLetterOffset;
+    }
   }
 
-  return finalletter; 
-}
+  return finalletter;
+};
 
 cipher.load = () => {
-  const btnCodificar = document.getElementById("btn-codificar");
-  const btnDecodificar = document.getElementById("btn-decodificar");
-  const digiteTexto = document.getElementById("digite-texto");
-  const digiteDeslocamento = document.getElementById("digite-deslocamento");
-  const resultado = document.getElementById("resultado");
+  const btnCode = document.getElementById("btn-code");
+  const btnDecode = document.getElementById("btn-decode");
+  const digitText = document.getElementById("digit-text");
+  const digitDisplacement = document.getElementById("digit-displacement");
+  const result = document.getElementById("result");
 
-  btnCodificar.addEventListener("click", function(event) {
-    const resultadoEncode = cipher.encode(digiteDeslocamento.value, digiteTexto.value);
-    resultado.value = resultadoEncode;
+  btnCode.addEventListener("click", function(event) {
+    const resultEncode = cipher.encode(digitDisplacement.value, digitText.value);
+    result.value = resultEncode;
     event.preventDefault();
   });
 
-  btnDecodificar.addEventListener("click", function(event) {
-    const resultadoDecode = cipher.decode(digiteDeslocamento.value, digiteTexto.value);
-    resultado.value = resultadoDecode;
+  btnDecode.addEventListener("click", function(event) {
+    const resultDecode = cipher.decode(digitDisplacement.value, digitText.value);
+    result.value = resultDecode;
 
     event.preventDefault();
   });
-}
+};

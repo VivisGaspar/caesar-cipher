@@ -1,42 +1,43 @@
-html,body {
+html,
+body {
   height: 100%;
-}
-
-h1 {
-  color: black;
-  background-color: white;
-  font-family: 'Courier New', Courier, monospace;
- 
-}
-
-p {
-  color: black;
-  font-family: monospace;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
   background-position: center center;
-  background-color: #DFDBE5;
+  background-color: #dfdbe5;
   background-image: url(https://thumbs.dreamstime.com/b/fundo-do-branco-c%C3%B3digo-bin%C3%A1rio-vetor-dados-grandes-e-corte-descriptografia-criptografia-de-programa%C3%A7%C3%A3o-computador-que-flui-100965977.jpg);
 }
 
-.titulo-padrao {
+h1 {
+  color: black;
+  background-color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+p {
+  color: black;
+}
+
+.title {
   margin-top: 0;
 }
 
-.botao-padrao {
+.btn-default {
+  width: 100px;
   padding: 10px;
-  color:white;
+  margin: 5px;
+  color: white;
   background: gray;
   border: 3px double white;
-} 
-
-#root {
-  padding: 20px;
-  text-align: center;
-  background-color: white;
-
 }
 
+#root {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+}

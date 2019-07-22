@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
-    <meta charset="utf-8">
-    <title>Cipher Caesar</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cifra de César</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body onload="cipher.load()">
-    
+ 
     <div id="root">
-      <h1 class="titulo-padrao">Cipher Caesar</h1> 
-      <p>Com o Cipher é possivel criptografar mensagens.<br>Comece digitando o texto que deseja criptografar e depois digite um número de sua preferência.
-          
+      <h1 class="title">Cipher Caesar</h1>
+      <p>
+        Com o Cipher é possivel criptografar mensagens.<br />Comece digitando o texto que deseja criptografar e depois
+        digite um número de sua preferência.
+      </p>
+    
+    <section>
       <form>
-          Digite o texto:<br>
-          <input type="text" id="digite-texto"><br><br>
-          
-          Digite o deslocamento:<br>
-          <input type="number" id="digite-deslocamento"><br><br>
+        Digite o texto:<br />
+        <input type="text" id="digit-text"/><br /><br />
+       
+        Digite o deslocamento:<br />
+        <input type="number" id="digit-displacement"/><br /><br />
 
-          Resultado:<br>
-          <textarea id="resultado"></textarea><br><br>
-          
-         <button id="btn-codificar" class="botao-padrao">Codificar</button>      
-         <button id="btn-decodificar" class="botao-padrao">Decodificar</button>      
-         <button type="reset" class="botao-padrao">Recomeçar</button>
-      </form>  
+        Resultado:<br />
+        <textarea id="result"></textarea><br /><br />
+
+        <button id="btn-code" class="btn-default">Codificar</button>
+        <button id="btn-decode" class="btn-default">Decodificar</button>
+        <button type="reset" class="btn-default">Recomeçar</button>
+      </form>
     </div>
+  </section>
 
     <script src="cipher.js"></script>
     <script src="tests.js"></script>
-
   </body>
 </html>
